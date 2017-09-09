@@ -39,10 +39,14 @@ static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 0;    /* number of clients in master area */
 static const int resizehints = 0; /* 1 means respect size hints in tiled resizals */
 
+#include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[M]",      monocle },    /* first entry is default */
-	{ "[]=",      tile },
+	{ "[]=",      tile },    /* first entry is default */
+	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
+	{ "H[]",      deck },
+	{ "HHH",      grid },
 };
 
 /* key definitions */
@@ -59,8 +63,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "/usr/bin/dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "/usr/bin/env", "SHELL=/usr/bin/fish", "st", "-e", "dvtm", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { "st", NULL};
 static const char *emcscmd[] = {"/usr/bin/emacs", NULL };
 static const char *filebwsr2[] = {"/usr/bin/nautilus", NULL };
 static const char *filebwsr[] = {"/usr/bin/st", "-t", "Archivos", "-e", "vifm", "/home/joshpar", NULL };
