@@ -1,6 +1,8 @@
 static void deck(Monitor *m);
 static void grid(Monitor *m);
 
+#define DECKMASTER 1
+
 void
 deck(Monitor *m) {
 	int dn;
@@ -11,17 +13,17 @@ deck(Monitor *m) {
 	if(n == 0)
 		return;
 
-	dn = n - m->nmaster;
+	dn = n - DECKMASTER;
 	if(dn > 0) /* override layout symbol */
 		snprintf(m->ltsymbol, sizeof m->ltsymbol, "D %d", dn);
 
-	if(n > m->nmaster)
-		mw = m->nmaster ? m->ww * m->mfact : 0;
+	if(n > DECKMASTER)
+		mw = DECKMASTER ? m->ww * m->mfact : 0;
 	else
 		mw = m->ww;
 	for(i = my = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-		if(i < m->nmaster) {
-			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
+		if(i < DECKMASTER) {
+			h = (m->wh - my) / (MIN(n, DECKMASTER) - i);
 			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), False);
 			my += HEIGHT(c);
 		}
