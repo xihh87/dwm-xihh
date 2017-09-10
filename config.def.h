@@ -44,8 +44,8 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[M]",      monocle },    /* first entry is default */
 	{ "[]=",      tile },
-	{ "H[]",      deck },
-	{ "HHH",      grid },
+	{ "D[]",      deck },
+	{ "HH",      grid },
 };
 
 /* key definitions */
