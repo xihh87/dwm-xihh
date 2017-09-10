@@ -116,7 +116,7 @@ static Key keys[] = {
     { MODKEY,                       XK_Escape,                spawn,             {.v = scrnlck }},
     { MODKEY,                       XK_e,                     spawn,             {.v = filebwsr }},
     { MODKEY,                       XK_F4,                    killclient,        {0} },
-    { MODKEY,                       XK_g,                     setlayout,         {.v = &layouts[3]} },
+    { MODKEY,                       XK_g,                     spawn,             SHCMD("xdg-open \"`sselp`\"")},
     { MODKEY,                       XK_h,                     setmfact,          {.f = -0.05} },
     { MODKEY,                       XK_i,                     incnmaster,        {.i = +1 } },
     { MODKEY,                       XK_j,                     focusstack,        {.i = +1 } },
