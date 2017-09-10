@@ -82,7 +82,7 @@ static const char *mpcplay[] = {"/usr/bin/mpc", "-h", "/run/user/1000/mpd/mpd.so
 static const char *mpcprev[] = {"/usr/bin/mpc", "-h", "/run/user/1000/mpd/mpd.socket", "cdprev", NULL };
 static const char *mpcstop[] = {"/usr/bin/mpc", "-h", "/run/user/1000/mpd/mpd.socket", "stop", NULL };
 
-static const char *mutecmd[] = {"/usr/bin/amixer", "set", "Master", "toggle", NULL };
+static const char *mutecmd[] = {"/usr/bin/pactl", "set-sink-mute", "1", "toggle", NULL };
 static const char *voldn[] = {"/usr/bin/amixer", "set", "Master", "5%-", NULL };
 static const char *volup[] = {"/usr/bin/amixer", "set", "Master", "5%+", NULL };
 
