@@ -29,7 +29,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           0,         0,        -1 },
+	{ "R_x11",    "r_x11",    NULL,       0,            0,           1,         1,        -1 },
+	{ "Gimp",     NULL,       NULL,       0,            0,           0,         0,        -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
 	{ "st",       NULL,       NULL,       0,            0,           1,         1,        -1 },
 };
@@ -134,6 +135,7 @@ static Key keys[] = {
     { MODKEY,                       XK_s,                     spawn,             {.v = emcscmd } },
     { MODKEY,                       XK_Tab,                   view,              {0} },
     { MODKEY,                       XK_t,                     setlayout,         {.v = &layouts[1]} },
+    { MODKEY,                       XK_v,                     setlayout,         {.v = &layouts[3]} },
     { MODKEY,                       XK_w,                     spawn,             {.v = termcmd } },
     { NOMODKEY,                     XF86XK_AudioLowerVolume,  spawn,             {.v = voldn } },
     { NOMODKEY,                     XF86XK_AudioMute,         spawn,             {.v = mutecmd } },
