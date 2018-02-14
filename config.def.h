@@ -30,6 +30,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   isterminal noswallow monitor */
 	{ "R_x11",    "r_x11",    NULL,       0,            0,           1,         1,        -1 },
+	{ NULL,    "libreoffice", NULL,       0,            0,           1,         1,        -1 },
 	{ "Gimp",     NULL,       NULL,       0,            0,           0,         0,        -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,         0,        -1 },
 	{ "st",       NULL,       NULL,       0,            0,           1,         1,        -1 },
@@ -65,13 +66,13 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL};
 static const char *emcscmd[] = {"/usr/bin/emacs", NULL };
 static const char *filebwsr2[] = {"/usr/bin/nautilus", NULL };
 static const char *filebwsr[] = {"/usr/bin/st", "-t", "Archivos", "-e", "vifm", "/home/joshpar", NULL };
 static const char *newscmd[] = {"/usr/bin/st", "-t", "RSS", "-e", "newsboat", NULL };
 static const char *scrnlck[] = {"/usr/bin/slock", NULL };
 static const char *scrshot[] = {"/usr/bin/scrot", "-s", "/home/joshpar/shots/%F-%H%M%S.png", NULL };
+static const char *termcmd[]  = { "/usr/bin/env", "SHELL=/usr/bin/mksh", "st", NULL };
 static const char *vimcmd[] = {"/usr/bin/st", "-e", "vis", NULL };
 static const char *webbwsr[] = {"/usr/bin/iceweasel", NULL };
 
