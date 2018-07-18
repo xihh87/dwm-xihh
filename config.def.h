@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:size=10", "monospace:size=10" };
+static const char *fonts[]          = { "Source Code Pro:size=13", "monospace:size=13" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -63,33 +63,34 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+#define ST "st", "-f", "Source Code Pro:pixelsize=30:antialias=true:autohint=true"
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *emcscmd[] = {"/usr/bin/emacs", NULL };
-static const char *filebwsr2[] = {"/usr/bin/nautilus", NULL };
-static const char *filebwsr[] = {"/usr/bin/st", "-t", "Archivos", "-e", "vifm", "/home/joshpar", NULL };
-static const char *newscmd[] = {"/usr/bin/st", "-t", "RSS", "-e", "newsboat", NULL };
-static const char *scrnlck[] = {"/usr/bin/slock", NULL };
-static const char *scrshot[] = {"/usr/bin/scrot", "-s", "/home/joshpar/shots/%F-%H%M%S.png", NULL };
-static const char *termcmd[]  = { "/usr/bin/env", "SHELL=/usr/bin/mksh", "st", NULL };
-static const char *vimcmd[] = {"/usr/bin/st", "-e", "vis", NULL };
-static const char *webbwsr[] = {"/usr/bin/iceweasel", NULL };
+static const char *emcscmd[] = {"emacs", NULL };
+static const char *filebwsr2[] = {"nautilus", NULL };
+static const char *filebwsr[] = {ST, "-t", "Archivos", "-e", "vifm", "/home/joshpar", NULL };
+static const char *newscmd[] = {ST, "-t", "RSS", "-e", "newsboat", NULL };
+static const char *scrnlck[] = {"slock", NULL };
+static const char *scrshot[] = {"scrot", "-s", "/home/joshpar/shots/%F-%H%M%S.png", NULL };
+static const char *termcmd[]  = { "env", "SHELL=mksh", ST, NULL };
+static const char *vimcmd[] = {ST, "-e", "vis", NULL };
+static const char *webbwsr[] = {"iceweasel", NULL };
 
-static const char *taskcmd[] = {"/usr/bin/st", "-t", "Pendientes", "-e", "/home/joshpar/.bin/t", NULL };
-static const char *wtaskcmd[] = {"/usr/bin/st", "-t", "Pendientes (trabajo)", "-e", "/home/joshpar/.bin/tw", NULL };
+static const char *taskcmd[] = {ST, "-t", "Pendientes", "-e", "/home/joshpar/.bin/t", NULL };
+static const char *wtaskcmd[] = {ST, "-t", "Pendientes (trabajo)", "-e", "/home/joshpar/.bin/tw", NULL };
 
-static const char *mpcnext[] = {"/usr/bin/mpc", "-h", "/run/user/1000/mpd/mpd.socket", "next", NULL };
-static const char *mpcplay[] = {"/usr/bin/mpc", "-h", "/run/user/1000/mpd/mpd.socket", "toggle", NULL };
-static const char *mpcprev[] = {"/usr/bin/mpc", "-h", "/run/user/1000/mpd/mpd.socket", "cdprev", NULL };
-static const char *mpcstop[] = {"/usr/bin/mpc", "-h", "/run/user/1000/mpd/mpd.socket", "stop", NULL };
+static const char *mpcnext[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "next", NULL };
+static const char *mpcplay[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "toggle", NULL };
+static const char *mpcprev[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "cdprev", NULL };
+static const char *mpcstop[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "stop", NULL };
 
-static const char *mutecmd[] = {"/usr/bin/pactl", "set-sink-mute", "1", "toggle", NULL };
-static const char *voldn[] = {"/usr/bin/amixer", "set", "Master", "5%-", NULL };
-static const char *volup[] = {"/usr/bin/amixer", "set", "Master", "5%+", NULL };
+static const char *mutecmd[] = {"pactl", "set-sink-mute", "1", "toggle", NULL };
+static const char *voldn[] = {"amixer", "set", "Master", "5%-", NULL };
+static const char *volup[] = {"amixer", "set", "Master", "5%+", NULL };
 
-static const char *brightdn[] = {"/usr/bin/xbacklight", "-dec", "+5", NULL };
-static const char *brightup[] = {"/usr/bin/xbacklight", "-inc", "+5", NULL };
+static const char *brightdn[] = {"xbacklight", "-dec", "+5", NULL };
+static const char *brightup[] = {"xbacklight", "-inc", "+5", NULL };
 
 #include <X11/XF86keysym.h>
 static Key keys[] = {
