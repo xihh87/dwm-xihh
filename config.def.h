@@ -78,7 +78,6 @@ static const char *vimcmd[] = {ST, "-e", "vis", NULL };
 static const char *webbwsr[] = {"iceweasel", NULL };
 
 static const char *taskcmd[] = {ST, "-t", "Pendientes", "-e", "/home/joshpar/.bin/t", NULL };
-static const char *wtaskcmd[] = {ST, "-t", "Pendientes (trabajo)", "-e", "/home/joshpar/.bin/tw", NULL };
 
 static const char *mpcnext[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "next", NULL };
 static const char *mpcplay[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "toggle", NULL };
@@ -127,7 +126,7 @@ static Key keys[] = {
     { MODKEY,                       XK_l,                     setmfact,          {.f = +0.05} },
     { MODKEY,                       XK_m,                     setlayout,         {.v = &layouts[0]} },
     { MODKEY,                       XK_n,	              spawn,             SHCMD("snotes")},
-    { MODKEY,                       XK_o,                     spawn,             {.v = wtaskcmd } },
+    { MODKEY,                       XK_o,                     spawn,             {.v = taskcmd } },
     { MODKEY,                       XK_period,                focusmon,          {.i = +1 } },
     { MODKEY,                       XK_p,                     spawn,             {.v = dmenucmd } },
     { MODKEY,                       XK_q,                     spawn,             {.v = webbwsr } },
