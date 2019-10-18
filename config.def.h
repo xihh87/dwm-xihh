@@ -63,21 +63,21 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-#define ST "st", "-f", "Source Code Pro:pixelsize=13:antialias=true:autohint=true"
+#define ST "st" //, "-f", "Source Code Pro:pixelsize=13:antialias=true:autohint=true"
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *emcscmd[] = {"emacs", NULL };
 static const char *filebwsr2[] = {"nautilus", NULL };
-static const char *filebwsr[] = {ST, "-t", "Archivos", "-e", "nnn", "/home/joshpar", NULL };
+static const char *filebwsr[] = {ST, "-t", "Archivos", "-e", "nnn", "/home/x", NULL };
 static const char *newscmd[] = {ST, "-t", "RSS", "-e", "newsboat", NULL };
 static const char *scrnlck[] = {"slock", NULL };
-static const char *scrshot[] = {"scrot", "-s", "/home/joshpar/shots/%F-%H%M%S.png", NULL };
-static const char *termcmd[]  = { "env", "SHELL=mksh", ST, NULL };
+static const char *scrshot[] = {"scrot", "-s", "/home/x/shots/%F-%H%M%S.png", NULL };
+static const char *termcmd[]  = {ST, NULL };
 static const char *vimcmd[] = {ST, "-e", "vis", NULL };
 static const char *webbwsr[] = {"iceweasel", NULL };
 
-static const char *taskcmd[] = {ST, "-t", "Pendientes", "-e", "/home/joshpar/.bin/t", NULL };
+static const char *taskcmd[] = {ST, "-t", "Pendientes", "-e", "/home/x/xihh/cmd/t", NULL };
 
 static const char *mpcnext[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "next", NULL };
 static const char *mpcplay[] = {"mpc", "-h", "/run/user/1000/mpd/mpd.socket", "toggle", NULL };
