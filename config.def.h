@@ -75,7 +75,8 @@ static const char *scrnlck[] = {"slock", NULL };
 static const char *scrshot[] = {"scrot", "-s", "/home/x/shots/%F-%H%M%S.png", NULL };
 static const char *termcmd[]  = {ST, NULL };
 static const char *vimcmd[] = {ST, "-e", "vis", NULL };
-static const char *webbwsr[] = {"iceweasel", NULL };
+static const char *webbwsr[] = {"firefox", NULL };
+static const char *webbwsrp[] = {"firefox", "-profileManager", NULL };
 
 static const char *taskcmd[] = {ST, "-t", "Pendientes", "-e", "/home/x/xihh/cmd/t", NULL };
 
@@ -103,6 +104,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_n,                     spawn,             SHCMD("snotes-open \"`sselp`\"")},
     { MODKEY|ShiftMask,             XK_o,                     spawn,             {.v = taskcmd } },
     { MODKEY|ShiftMask,             XK_period,                tagmon,            {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_q,                     spawn,             {.v = webbwsrp } },
     { MODKEY|ShiftMask,             XK_space,                 togglefloating,    {0} },
     { MODKEY|ShiftMask,             XK_w,                     spawn,             {.v = termcmd } },
     { MODKEY,                       XF86XK_AudioNext,         spawn,             {.v = mpcnext } },
