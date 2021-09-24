@@ -73,6 +73,7 @@ static const char *filebwsr[] = {ST, "-t", "Archivos", "-e", "nnn", "/home/x", N
 static const char *newscmd[] = {ST, "-t", "RSS", "-e", "newsboat", NULL };
 static const char *scrnlck[] = {"slock", NULL };
 static const char *scrshot[] = {"scrot", "-s", "/home/x/shots/%F-%H-%M-%S.png", NULL };
+static const char *wtermcmd[]  = {"tilix", NULL };
 static const char *termcmd[]  = {ST, NULL };
 static const char *vimcmd[] = {ST, "-e", "vis", NULL };
 static const char *webbwsr[] = {"firefox", NULL };
@@ -106,7 +107,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_period,                tagmon,            {.i = +1 } },
     { MODKEY|ShiftMask,             XK_q,                     spawn,             {.v = webbwsrp } },
     { MODKEY|ShiftMask,             XK_space,                 togglefloating,    {0} },
-    { MODKEY|ShiftMask,             XK_w,                     spawn,             {.v = termcmd } },
+    { MODKEY|ShiftMask,             XK_w,                     spawn,             {.v = wtermcmd } },
     { MODKEY,                       XF86XK_AudioNext,         spawn,             {.v = mpcnext } },
     { MODKEY,                       XF86XK_AudioPlay,         spawn,             {.v = mpcplay } },
     { MODKEY,                       XF86XK_AudioPrev,         spawn,             {.v = mpcprev } },
